@@ -1,0 +1,70 @@
+broker:
+  trade_gateway: tcp://xmac:9801?cluster_token=e10adc3949ba59abbe56e057f20f883e
+  wal: wal:///../data/trade.broker.wal?keep=5
+  enable_upload: true
+  query_asset_interval_ms: 0
+  query_position_interval_ms: 0
+  query_knock_interval_ms: 0
+  request_timeout_ms: 0
+  enable_query_only: false
+  enable_stock_short_selling: false
+  idle_sleep_ns: 1000000
+  cpu_affinity: 0
+  node_name: 华泰金桥2机房浩睿股票交易Broker
+  mem_dir: ../data
+  mem_req_file: broker_req
+  mem_rep_file: broker_rep
+
+#// 国泰君安测试地址 libctp-6.6.8, 6.3.15 两个版本
+ctp:
+  ctp_trade_front    : tcp://180.169.50.131:42205
+  ctp_broker_id      : 2071
+  ctp_investor_id    : 0080600133
+  ctp_password       : .gtja8888
+  ctp_app_id         : client_pftzfuture_1.0.1
+  ctp_product_info   : pf1hfuture
+  ctp_auth_code      : 20210608PFTZFU01
+  disable_subscribe  : false
+
+# 招商期货，测试版本号libctp-6.6.9_test，生产版本号libctp-6.6.9_work
+# 东证期货,
+ctp_dongzheng:
+  ctp_trade_front    : tcp://180.169.241.154:41405
+  ctp_broker_id      : 8060
+  ctp_investor_id    : 99683265
+  ctp_password       : .456123
+  ctp_app_id         : client_pftzfuture_1.0.1
+  ctp_product_info   : pftzfuture
+  ctp_auth_code      : LNU4LSG4Q1MUQNZS
+  disable_subscribe  : false
+
+#// 申万期货测试地址 libctp-6.6.9两个版本
+ctp_shenwan:
+  ctp_trade_front    : tcp://124.74.247.143:10051
+  ctp_broker_id      : 88888
+  ctp_investor_id    : 8001888888
+  ctp_password       : .demo1234
+  ctp_app_id         : client_pftzfuture_1.0.1
+  ctp_product_info   : pf1hfuture
+  ctp_auth_code      : J0OID0O20NV7R64I
+  disable_subscribe  : false
+
+# 华泰
+ctp_huatai:
+  ctp_trade_front    : tcp://59.36.3.115:27226
+  ctp_broker_id      : 8080
+  ctp_investor_id    : 12430
+  ctp_password       : .XIAOshao@123
+  ctp_app_id         : client_pftzfuture_1.0.1
+  ctp_product_info   : pf1hfuture
+  ctp_auth_code      : O11TUJLKRVU27ZA8
+  disable_subscribe  : false
+
+risk:
+# 股指期货自动开平仓时禁止平今
+  risk_forbid_closing_today     : true
+  # 股指期货每日最大开仓数限制（0-禁止开仓，-1：无限制）
+  risk_max_today_opening_volume : 20
+log:
+  level: info
+  async: false
